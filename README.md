@@ -1,4 +1,4 @@
 Cloud1
 ======
 
-Capstone Internet of Things platform
+This is the Capstone Internet of Things platform
