@@ -1,0 +1,8 @@
+These are the basics of web development. Open up the CSS, Javascript,
+and HTML files in some kind of text editor to see my comments. To learn
+more about web development and to look up specific functions/
+CSS identifiers/HTML tags and attributes go to w3schools.com.
+
+Also, if you want a good web dev tool, I would suggest installing
+Netbeans. It's useful for managing web development and has support
+for subversion/team development.
