@@ -12,82 +12,89 @@
 <!-- exceptions you almost always need a closing tag written as </tag> to end a section -->
 <!-- lang="en-US" is merely telling the web browser to use the US English language char set. -->
 
-<head>
-<!-- The head section contains info about the web page like the title, search engine info, etc... -->
+   <head>
+   <!-- The head section contains info about the web page like the title, search engine info, etc... -->
 
-<title>Cloud1</title>
-<!-- Name of the web page (what you will see on the browser tab). -->
+      <title>Cloud1</title>
+      <!-- Name of the web page (what you will see on the browser tab). -->
 
-<link rel="stylesheet" href="styles.css">
-<!-- This is a style link. rel tells the browser what type and href tells the browser the location -->
-<!-- Right now we are pointing to the home directory (where the web page is located) you can -->
-<!-- tell the browser to look in a different location like this /folder/filename.ext -->
-<!-- everything is relative to the home directory. Anyways, this tells the browser to look -->
-<!-- for a file called styles.css in the home directory. That file contains all of our CSS. -->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- This is a script tag. Inside a script tag you can have your javascript functions. -->
-<!-- The src attribute is similar to href. This tag is empty, but it gives the location of -->
-<!-- a file that contains javascript functions. This particular tag points to the JQuery -->
-<!-- function library that google hosts for free. -->
+      <link rel="stylesheet" href="styles.css">
+      <!-- This is a style link. rel tells the browser what type and href tells the browser the location -->
+      <!-- Right now we are pointing to the home directory (where the web page is located) you can -->
+      <!-- tell the browser to look in a different location like this /folder/filename.ext -->
+      <!-- everything is relative to the home directory. Anyways, this tells the browser to look -->
+      <!-- for a file called styles.css in the home directory. That file contains all of our CSS. -->
 
-<script src="MyScripts.js"></script>
-<!-- This tag links to our own file containing all of our javascript code. -->
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <!-- This is a script tag. Inside a script tag you can have your javascript functions. -->
+      <!-- The src attribute is similar to href. This tag is empty, but it gives the location of -->
+      <!-- a file that contains javascript functions. This particular tag points to the JQuery -->
+      <!-- function library that google hosts for free. -->
 
-<!-- Note: the order of the tags is the order in which the web browser receives things. -->
-<!-- Generally, you want the CSS linking in the head tag because you want the CSS to be -->
-<!-- loaded before the browser tries to display the page so that everything is displayed correctly, -->
-<!-- but the script tags can actually go after the body. The reason for this is how pages are -->
-<!-- loaded. Depending on the size of the web page and connection speed the delay before a web page -->
-<!-- loads. If we place the javascript code up here the web page will completely load before -->
-<!-- being displayed, but it's going to be slower. If we place the javascript code at the end -->
-<!-- The page will be displayed faster, but any javascript will still need to be loaded. So, -->
-<!-- any javascript that alters the look of the page or performs some function won't occur immediately. -->
+      <script src="MyScripts.js"></script>
+      <!-- This tag links to our own file containing all of our javascript code. -->
 
-</head>
+      <!-- Note: the order of the tags is the order in which the web browser receives things. -->
+      <!-- Generally, you want the CSS linking in the head tag because you want the CSS to be -->
+      <!-- loaded before the browser tries to display the page so that everything is displayed correctly, -->
+      <!-- but the script tags can actually go after the body. The reason for this is how pages are -->
+      <!-- loaded. Depending on the size of the web page and connection speed the delay before a web page -->
+      <!-- loads. If we place the javascript code up here the web page will completely load before -->
+      <!-- being displayed, but it's going to be slower. If we place the javascript code at the end -->
+      <!-- The page will be displayed faster, but any javascript will still need to be loaded. So, -->
+      <!-- any javascript that alters the look of the page or performs some function won't occur immediately. -->
 
-<body>
-<!-- The body tag encloses all the HTML structure of the page. This is the foundation for the -->
-<!-- page that will be modified by the CSS and javascript to give in the final coating of paint -->
-<!-- so to speak. -->
+   </head>
 
-<div class="header">
-<!-- The div tag is one of the most essential tags in HTML. It creates a division or block of -->
-<!-- elements. Basically, every individual section or object on the page should be in its own -->
-<!-- div tag. The class attribute is also very important. You can give any number of tags the -->
-<!-- same class and have as many classes as you want. This is useful for grouping items together. -->
-<!-- You can then use that class to target specific groups with your CSS and Javascript. -->
-<!-- By default a block style element. -->
+   <body>
+   <!-- The body tag encloses all the HTML structure of the page. This is the foundation for the -->
+   <!-- page that will be modified by the CSS and javascript to give in the final coating of paint -->
+   <!-- so to speak. -->
 
-   <img id="header-icon" src="img/cloud1.jpg"></img>
-   <!-- HTML image tag. You can also add images through CSS. The src attribute is the location of -->
-   <!-- the image. Also the id attribute functions almost identically to the class attribute, but -->
-   <!-- each id name should only be given to one object so that it can be used to target that tag -->
-   <!-- specifically with your CSS. -->
+      <div class="header">
+      <!-- The div tag is one of the most essential tags in HTML. It creates a division or block of -->
+      <!-- elements. Basically, every individual section or object on the page should be in its own -->
+      <!-- div tag. The class attribute is also very important. You can give any number of tags the -->
+      <!-- same class and have as many classes as you want. This is useful for grouping items together. -->
+      <!-- You can then use that class to target specific groups with your CSS and Javascript. -->
+      <!-- By default a block style element. -->
 
-   <span id="header-text">Cloud1</span>
-   <!-- Span is a basic text container, but it behaves similarly to a div tag. By default an inline -->
-   <!-- style element -->
+         <img id="header-icon" src="./img/Cloud1.jpg" alt="Project Logo">
+         <!-- HTML image tag. You can also add images through CSS. The src attribute is the location of -->
+         <!-- the image. Also the id attribute functions almost identically to the class attribute, but -->
+         <!-- each id name should only be given to one object so that it can be used to target that tag -->
+         <!-- specifically with your CSS. -->
 
-</div>
+         <span id="header-text">Cloud1</span>
+         <!-- Span is a basic text container, but it behaves similarly to a div tag. By default an inline -->
+         <!-- style element -->
 
-<span id="device-column">
+      </div>
+   
+      <div id="body">
 
-   <span id="device-text">Code goes here</span>
+         <div id="device-column">
 
-</span>
-<span id="project-column">
+            <p id="device-text">Code goes here</p>
 
-   <span id="project-text">Code goes here</span>
+         </div>
+         <div id="project-column">
 
-</span>
-<span id="code-column">
+            <p id="project-text">Code goes here</p>
 
-   <span id="code-text">Code goes here</span>
+         </div>
+         <div id="code-column">
 
-</span>
+            <p id="code-text">Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here  Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes hereCode goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here</p>
 
-</body>
+         </div>
+         
+      </div>
+
+   </body>
 
 </html>
 
