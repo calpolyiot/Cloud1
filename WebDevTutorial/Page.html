@@ -28,13 +28,13 @@
       <!-- everything is relative to the home directory. Anyways, this tells the browser to look -->
       <!-- for a file called styles.css in the home directory. That file contains all of our CSS. -->
 
-      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <!-- This is a script tag. Inside a script tag you can have your javascript functions. -->
       <!-- The src attribute is similar to href. This tag is empty, but it gives the location of -->
       <!-- a file that contains javascript functions. This particular tag points to the JQuery -->
       <!-- function library that google hosts for free. -->
 
-      <script src="MyScripts.js"></script>
+      <script type="text/javascript" src="./MyScripts.js"></script>
       <!-- This tag links to our own file containing all of our javascript code. -->
 
       <!-- Note: the order of the tags is the order in which the web browser receives things. -->
@@ -77,40 +77,40 @@
       <div id="body">
 
          <div id="device-column">
-
-            <p id="device-text">
-		<ul>
-  			<li><u><b>My Devices</u></b>
-    			   <ul>
-     				<li>Light</li>
+            <div class="devices">
+               <span class="device-header">My Devices</span>
+               <div class="button" id="button1"></div>
+               <hr>
+               <ul>
+                  <li>Light</li>
       				<li>Phone</li>
-      				<li><a href="AddDevice">Add New Device</a></li>
-    			   </ul>
-  			</li>
-  			<li><u><b>My Shared Devices</u></b>
-    			   <ul>
-     				<li>Fan</li>
-      				<li><a href="ShareDevice()">Share a Device</a></li>
-			   </ul>
-      			<li><u><b>Public Devices</u></b>
-        		   <ul>
-          			<li>Joe's Clock</li>
-          			<li><a href="PublicDevice()">Find a Public Device</a></li>
-        		   </ul>
-      			</li>
-    		</ul>
-	    </p>
-
+               </ul>
+            </div>
+            <div class="devices">
+               <span class="device-header">My Shared Devices</span>
+               <div class="button" id="button2"></div>
+               <hr>
+               <ul>
+                  <li>Fan</li>
+               </ul>
+            </div>
+            <div class="devices">
+               <span class="device-header">Public Devices</span>
+               <div class="button" id="button3"></div>
+               <hr>
+               <ul>
+                  <li>Joe's Clock</li>
+               </ul>
+            </div>
          </div>
          <div id="project-column">
 
-            <p id="project-text">Code goes here</p>
+            <p id="project-text"></p>
 
          </div>
          <div id="code-column">
 
-            <p id="code-text">Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here  Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes hereCode goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here Code goes here</p>
-
+            <p id="code-text"></p>
          </div>
          
       </div>
