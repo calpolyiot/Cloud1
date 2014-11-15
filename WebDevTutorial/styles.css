@@ -110,7 +110,7 @@ body {
 .button {
     height: 20px;
     width: 20px;
-    background-color: black;
+    background-color: none;
     display: inline-block;
     position: absolute;
     right: 5px;
