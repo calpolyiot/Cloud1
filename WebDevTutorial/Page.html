@@ -119,6 +119,21 @@
                <option value="or">OR</option>
                <option value="unless">UNLESS</option>
             </select>
+            
+            <button onclick="myFunction()">Add new device</button>
+
+            <p id="addDevice"></p>
+
+            <script>
+            function myFunction() {
+                var device = prompt("Please enter device name", "Camera");
+                
+                if (device != null) {
+                    document.getElementById("addDevice").innerHTML =
+                    "Device '" + device + "' added!";
+                }
+            }
+            </script>
 
             <p id="project-text"></p>
 
