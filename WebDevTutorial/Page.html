@@ -27,13 +27,15 @@
       <!-- tell the browser to look in a different location like this /folder/filename.ext -->
       <!-- everything is relative to the home directory. Anyways, this tells the browser to look -->
       <!-- for a file called styles.css in the home directory. That file contains all of our CSS. -->
-
-       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      
+      <link href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
       <!-- This is a script tag. Inside a script tag you can have your javascript functions. -->
       <!-- The src attribute is similar to href. This tag is empty, but it gives the location of -->
       <!-- a file that contains javascript functions. This particular tag points to the JQuery -->
       <!-- function library that google hosts for free. -->
-
+      
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
       <script type="text/javascript" src="./MyScripts.js"></script>
       <!-- This tag links to our own file containing all of our javascript code. -->
 
@@ -77,65 +79,95 @@
       <div id="body">
 
          <div id="device-column">
-            <div class="devices">
+            <div class="devices" id="my-devices">
                <span class="device-header">My Devices</span>
-               <div class="button" id="button1"><img id="plusDev" src="./img/plus-50.png" alt="Add Device" style="width:20px;height:20px"></div>
+               <img src="img/IoTIcons/plus-50.png" class="button" id="button1">
                <hr>
                <ul>
-                  <li>Light</li>
-      				<li>Phone</li>
                </ul>
             </div>
             <div class="devices">
                <span class="device-header">My Shared Devices</span>
-               <div class="button" id="button2"><img id="plusShare" src="./img/plus-50.png" alt="Share Device" style="width:20px;height:20px"></div>
+               <img src="img/IoTIcons/plus-50.png" class="button" id="button2">
                <hr>
                <ul>
-                  <li>Fan</li>
                </ul>
             </div>
             <div class="devices">
                <span class="device-header">Public Devices</span>
-               <div class="button" id="button3"><img id="getShared" src="./img/plus-50.png" alt="Add Shared Device" style="width:20px;height:20px"></div>
+               <img src="img/IoTIcons/plus-50.png" class="button" id="button3">
                <hr>
                <ul>
-                  <li>Joe's Clock</li>
                </ul>
             </div>
          </div>
          <div id="project-column">
-         
-            <select id="dropdown-text" name="selectAPI">
-               <option value="selectAPI">Select API</option>
+            
+            <label class="label">Master Device:</label><br/>
+            
+            <select id="project-device-master" class="dropdown-text" name="selectAPI">
+               <option value="selectAPI">Select Device</option>
+               <option value="selectAPI">Corey's Phone</option>
             </select>
             
-            <select id="dropdown-text" name="listOutputs">
-               <option value="listOutputs">List Outputs</option>
+            <select class="dropdown-text" name="Input/Output">
+               <option value="listInputs">Input/Output</option>
+               <option value="listInputs">Send</option>
+               <option value="listInputs">Receive</option>
             </select>
             
-            <select id="dropdown-text" name="listOperators">
+            <select class="dropdown-text" name="listOperators">
                <option value="operators">List Operators</option>
-               <option value="and">AND</option>
-               <option value="or">OR</option>
-               <option value="unless">UNLESS</option>
+               <option value="and">Button Click</option>
             </select>
             
-            <button onclick="myFunction()">Add new device</button>
+            <select class="dropdown-text" name="listOutputs">
+               <option value="listOutputs">List Outputs</option>
+               <option value="listOutputs">Binary</option>
+            </select>
+            
+            <br/><br/>
+            
+            <label class="label">Slave Device:</label><br/>
+            
+            <select id="project-device-slave" class="dropdown-text" name="selectAPI">
+               <option value="selectAPI">Select Device</option>
+               <option value="selectAPI">House Lights</option>
+            </select>
+            
+            <select class="dropdown-text" name="listInputs">
+               <option value="listInputs">Input/Output</option>
+               <option value="listInputs">Receive</option>
+            </select>
+            
+            <select class="dropdown-text" name="listOperators">
+               <option value="operators">List Operators</option>
+               <option value="N/A">On/Off</option>
+            </select>
+            
+            <select class="dropdown-text" name="listOutputs">
+               <option value="listOutputs">List Outputs</option>
+               <option value="N/A">N/A</option>
+            </select>
+            
+            <br/><br/>
+            
+            <span id="generate-code" class="submit-button">Generate Code</span>
 
-            <p id="addDevice"></p>
-
-            <script>
-            function myFunction() {
-                var device = prompt("Please enter device name", "Camera");
-                
-                if (device != null) {
-                    document.getElementById("addDevice").innerHTML =
-                    "Device '" + device + "' added!";
-                }
-            }
-            </script>
-
-            <p id="project-text"></p>
+            <div id="dialog" title="Add New Device">
+               <form action="" method="post">
+               <label>Device Name:</label><br/>
+               <input type="text" id="name" name="name"><br/>
+               <label>Device Type:</label><br/>
+               <select id="device" class="dropdown">
+                  <option value="android">Android Device</option>
+                  <option value="light-switch">Light Switch</option>
+               </select><br/>
+               <label>IP Address:</label><br/>
+               <input type="text" id="ip" name="ip"><br/><br/>
+               <span id="add-device" class="submit-button">Submit</span>
+               </form>
+		      </div>
 
          </div>
          <div id="code-column">
