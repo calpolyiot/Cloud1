@@ -56,6 +56,25 @@
    <!-- page that will be modified by the CSS and javascript to give in the final coating of paint -->
    <!-- so to speak. -->
 
+   <!-- this section is made to connect to facebook using the app Id we were given -->
+   <script>
+      window.fbAsyncInit = function() {
+         FB.init({
+            appId      : '484782094998179',
+            xfbml      : true,
+            version    : 'v2.2'
+         });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+         </script>
+
       <div class="header">
       <!-- The div tag is one of the most essential tags in HTML. It creates a division or block of -->
       <!-- elements. Basically, every individual section or object on the page should be in its own -->
@@ -69,12 +88,17 @@
          <!-- the image. Also the id attribute functions almost identically to the class attribute, but -->
          <!-- each id name should only be given to one object so that it can be used to target that tag -->
          <!-- specifically with your CSS. -->
+	
+	 <!-- facebook like button test -->
+         <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
 
          <span id="header-text">Cloud1</span>
          <!-- Span is a basic text container, but it behaves similarly to a div tag. By default an inline -->
          <!-- style element -->
 
       </div>
+
+      
    
       <div id="body">
 
