@@ -83,6 +83,10 @@ body {
     height: 90%;
 }
 
+.fb-like{
+ float: right;
+}
+
 .devices {
     position: relative;
     min-height: 30%;
