@@ -24,6 +24,13 @@ $(document).ready(function(){
     
     $("#generate-code").click(function(){
       $("#code-text").append("Code GetCode(void *codeSet, int code) {<br/>   int i, j;<br/>   CodeSet *set = (CodeSet *)codeSet;<br/>   CodeEntry *entries = (CodeEntry *)set->codes;<br/><br/>   if (entries[code].numUses == 0) {<br/>      CodeEntry *index = entries + code;<br/><br/>      for (i = 1; index != NULL && index->prefix != NULL; i++)<br/>         index = index->prefix;<br/><br/>      entries[code].block.data = (UChar *) calloc(i, 1);<br/>      entries[code].block.size = i--;<br/>      index = entries + code;<br/><br/>      while (i >= 0) {<br/>         entries[code].block.data[i--] = index->final;<br/>         index = index->prefix;<br/>      }<br/><br/>   }<br/>   entries[code].numUses = 1;<br/><br/>   return entries[code].block;<br/>}");
+
+      FB.api('/me/feed','post', {message: "I'm on Cloud1"},
+    	function(response) {
+          // handle the response
+	}
+      );
+
     });
     
     $("#add-device").click(function(){
@@ -41,16 +48,6 @@ $(document).ready(function(){
       
       $(this).closest('.ui-dialog-content').dialog('close'); 
     });
-
-    FB.api(
-	'/me/feed',
-	'post', 
-	{message: "I'm on Cloud1"},
-    	function(response) {
-          // handle the response
-	}
-    );
-
 });
 
 
