@@ -46,10 +46,6 @@ body {
        rgb(0, 0, 0), or 140 predefined colors like "blue" */
 }
 
-#table-container {
-    border: 1px solid black;
-}
-
 #header-icon {
 /* This selector targets objects with the id "header-icon". To use an id selector use the format
    #id_name */
@@ -83,17 +79,6 @@ body {
     height: 90%;
 }
 
-.fb-like{
-    position: fixed;
-    top: 30px;
-    right: 5px;
-}
-
-#fblogin{
-	float: right;
-
-}
-
 .devices {
     position: relative;
     min-height: 30%;
@@ -112,10 +97,27 @@ body {
     position: relative;
 }
 
+#fblogin {
+  margin-top: 10px;
+}
+
 .device-header {
     position: relative;
     top: 5px;
     margin-left: 10px;
+}
+
+#my-devices ul {
+   list-style-type: none;
+}
+
+.secret {
+   display: none !important;
+}
+
+.hidden-dropdown {
+   display: inline;
+   width: 23% !important;
 }
 
 .button {
@@ -143,13 +145,24 @@ body {
 }
 
 .dropdown-text {
-   margin: 20px;
-   /*top right bottom left*/
-   padding: 5px 0px 5px 5px;
+    width: 23%;
+}
+
+#device {
+    width: 250px;
+}
+
+#master-inputs {
+   margin-left: 20px;
+}
+
+#slave-inputs {
+   margin-left: 20px;
 }
 
 #generate-code {
     margin-left: 3%;
+    cursor: default;
 }
 
 #code-column {
@@ -175,6 +188,7 @@ body {
     color: aqua;
     /* Color specifies the font color. */
 
+    font-family: courier;
     margin: 0px;
     padding: 20px 20px 20px 20px;
 }
@@ -182,7 +196,11 @@ body {
 .submit-button {
     padding: 5px 10px 5px 10px;
     border-radius: 10px;
-    background-color: #cccccc
+    background-color: #dddddd;
+}
+
+.submit-button:hover {
+    background-color: #cccccc;
 }
 
 /* Note: Designing your web page is a lot of trial and error. Even I am not always sure how things

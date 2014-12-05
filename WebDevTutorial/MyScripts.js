@@ -1,4 +1,4 @@
-var ip = "192.168.1.7/sensor";
+var tempCode = "$.getJSON(ip, function(data) {\n   alert(data.sensor);\n});";
 
 $(document).ready(function(){
     var devices = [];
@@ -10,7 +10,8 @@ $(document).ready(function(){
 	autoOpen: false
     });
     
-    $(".dropdown").prop("selectedIndex", -1);
+    $(".dropdown-text").selectmenu();
+    $( ".dropdown-text" ).selectmenu( "option", "width", 200 );
 
     $("#button1").click(function(){
         $("#dialog").dialog("open");
@@ -25,14 +26,10 @@ $(document).ready(function(){
     });
     
     $("#generate-code").click(function(){
-      $("#code-text").append("Code GetCode(void *codeSet, int code) {<br/>   int i, j;<br/>   CodeSet *set = (CodeSet *)codeSet;<br/>   CodeEntry *entries = (CodeEntry *)set->codes;<br/><br/>   if (entries[code].numUses == 0) {<br/>      CodeEntry *index = entries + code;<br/><br/>      for (i = 1; index != NULL && index->prefix != NULL; i++)<br/>         index = index->prefix;<br/><br/>      entries[code].block.data = (UChar *) calloc(i, 1);<br/>      entries[code].block.size = i--;<br/>      index = entries + code;<br/><br/>      while (i >= 0) {<br/>         entries[code].block.data[i--] = index->final;<br/>         index = index->prefix;<br/>      }<br/><br/>   }<br/>   entries[code].numUses = 1;<br/><br/>   return entries[code].block;<br/>}");
-
-      FB.api('/me/feed','post', {message: "I'm on Cloud1"},
-    	function(response) {
-          // handle the response
-	}
-      );
-
+      $.getJSON("http://192.168.1.7/sensor", function(data){
+          alert(data.sensor);
+      });
+      $("#code-text").text(tempCode);
     });
     
     $("#add-device").click(function(){
@@ -43,21 +40,49 @@ $(document).ready(function(){
       devices[i++] = name;
       
       $("#my-devices ul").append("<li>" + name + "</li>");
-      $("project-device-master").append($('<option></option>').val(name).html(name));
+      if(type === "temp") {
+        $("#project-device-master").append($('<option value="' + name + '">' + name + '</option>'));
+        $("#project-device-master").selectmenu("refresh");
+      } else {
+        $("#project-device-slave").append($('<option value="' + name + '">' + name + '</option>'));
+        $("#project-device-slave").selectmenu("refresh");
+      }
       
       $("#name").val('');
       $("#ip").val('');
       
-      $(this).closest('.ui-dialog-content').dialog('close'); 
+      $(this).closest('.ui-dialog-content').dialog('close');
+      $("#device").prop("selectedIndex", 0);
+      $("#device").selectmenu("refresh");
+      $("#ip-input").removeClass("secret");
+      $("#fblogin").addClass("secret");
     });
-});
-
-
-//FACEBOOK
+    
+    $( "#project-device-master" ).on( "selectmenuchange", function() {
+        $("#master-io").removeClass("secret");
+        $("#master-io").selectmenu("refresh");
+    } );
+    
+    $( "#device" ).on( "selectmenuchange", function() {
+        if($("#device").val() === "fb") {
+          $("#ip-input").addClass("secret");
+          $("#fblogin").removeClass("secret");
+        } else if($("#device").val() !== "fb") {
+          $("#ip-input").removeClass("secret");
+          $("#fblogin").addClass("secret");
+        }
+    } );
+    
+    $( "#project-device-slave" ).on( "selectmenuchange", function() {
+        $("#slave-io").removeClass("secret");
+        $("#slave-io").selectmenu("refresh");
+    } );
+    
+    //FACEBOOK
 
 
 // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
+    function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -115,7 +140,7 @@ $(document).ready(function(){
 
   FB.login(function(){
     FB.api('/me/feed', 'post', {message: "I'm on Cloud1"});
-  }, {scope: 'publish_actions'});
+    }, {scope: 'publish_actions'});
 
   };
 
@@ -139,3 +164,4 @@ $(document).ready(function(){
     });
   }
 
+});

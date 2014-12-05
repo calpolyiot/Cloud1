@@ -56,8 +56,6 @@
    <!-- page that will be modified by the CSS and javascript to give in the final coating of paint -->
    <!-- so to speak. -->
 
-   <!-- this section is made to connect to facebook using the app Id we were given -->
-    
       <div class="header">
       <!-- The div tag is one of the most essential tags in HTML. It creates a division or block of -->
       <!-- elements. Basically, every individual section or object on the page should be in its own -->
@@ -72,41 +70,32 @@
          <!-- each id name should only be given to one object so that it can be used to target that tag -->
          <!-- specifically with your CSS. -->
 
-       	 <!-- facebook like button test -->
-         <div class="fb-like" data-share="false" data-width="450" data-show-faces="true"></div>
-
          <span id="header-text">Cloud1</span>
          <!-- Span is a basic text container, but it behaves similarly to a div tag. By default an inline -->
          <!-- style element -->
 
-	<!-- facebook login button -->
-	<div id="fblogin">
-	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-	</div>
       </div>
-
-      
    
       <div id="body">
 
          <div id="device-column">
             <div class="devices" id="my-devices">
                <span class="device-header">My Devices</span>
-               <img src="img/plus-50.png" class="button" id="button1">
+               <img src="img/IoTIcons/plus-50.png" class="button" id="button1">
                <hr>
                <ul>
                </ul>
             </div>
             <div class="devices">
                <span class="device-header">My Shared Devices</span>
-               <img src="img/plus-50.png" class="button" id="button2">
+               <img src="img/IoTIcons/plus-50.png" class="button" id="button2">
                <hr>
                <ul>
                </ul>
             </div>
             <div class="devices">
                <span class="device-header">Public Devices</span>
-               <img src="img/plus-50.png" class="button" id="button3">
+               <img src="img/IoTIcons/plus-50.png" class="button" id="button3">
                <hr>
                <ul>
                </ul>
@@ -114,52 +103,65 @@
          </div>
          <div id="project-column">
             
-            <label class="label">Master Device:</label><br/>
+            <label class="label">Master Device:</label><br/><br/>
             
-            <select id="project-device-master" class="dropdown-text" name="selectAPI">
-               <option value="selectAPI">Select Device</option>
-               <option value="selectAPI">Corey's Phone</option>
-            </select>
-            
-            <select class="dropdown-text" name="Input/Output">
-               <option value="listInputs">Input/Output</option>
-               <option value="listInputs">Send</option>
-               <option value="listInputs">Receive</option>
-            </select>
-            
-            <select class="dropdown-text" name="listOperators">
-               <option value="operators">List Operators</option>
-               <option value="and">Button Click</option>
-            </select>
-            
-            <select class="dropdown-text" name="listOutputs">
-               <option value="listOutputs">List Outputs</option>
-               <option value="listOutputs">Binary</option>
-            </select>
+            <div id="master-inputs">
+               <select id="project-device-master" class="dropdown-text" name="selectAPI">
+                  <option value="selectAPI">Select Device</option>
+               </select>
+
+               <div id="master-io" class="secret hidden-dropdown">
+                <select class="dropdown-text" name="Input/Output">
+                   <option value="listInputs">Input/Output</option>
+                   <option value="listInputs">Send</option>
+                </select>
+               </div>
+
+               <div class="secret hidden-dropdown">
+                <select class="dropdown-text" name="listOperators">
+                   <option value="operators">List Operators</option>
+                   <option value="and">Button Click</option>
+                </select>
+               </div>
+
+               <div id="master-io" class="secret hidden-dropdown">
+                <select class="dropdown-text" name="listOutputs">
+                   <option value="listOutputs">List Outputs</option>
+                   <option value="listOutputs">Binary</option>
+                </select>
+               </div>
+            </div>
             
             <br/><br/>
             
-            <label class="label">Slave Device:</label><br/>
+            <label class="label">Slave Device:</label><br/><br/>
             
-            <select id="project-device-slave" class="dropdown-text" name="selectAPI">
-               <option value="selectAPI">Select Device</option>
-               <option value="selectAPI">House Lights</option>
-            </select>
-            
-            <select class="dropdown-text" name="listInputs">
-               <option value="listInputs">Input/Output</option>
-               <option value="listInputs">Receive</option>
-            </select>
-            
-            <select class="dropdown-text" name="listOperators">
-               <option value="operators">List Operators</option>
-               <option value="N/A">On/Off</option>
-            </select>
-            
-            <select class="dropdown-text" name="listOutputs">
-               <option value="listOutputs">List Outputs</option>
-               <option value="N/A">N/A</option>
-            </select>
+            <div id="slave-inputs">
+               <select id="project-device-slave" class="dropdown-text" name="selectAPI">
+                  <option value="selectAPI">Select Device</option>
+               </select>
+
+               <div id="slave-io" class="secret hidden-dropdown">
+                <select class="dropdown-text" name="listInputs">
+                   <option value="listInputs">Input/Output</option>
+                   <option value="listInputs">Receive</option>
+                </select>
+               </div>
+
+               <div class="secret hidden-dropdown">
+                <select class="dropdown-text secret" name="listOperators">
+                   <option value="operators">List Operators</option>
+                   <option value="N/A">On/Off</option>
+                </select>
+               </div>
+
+               <div class="secret hidden-dropdown">
+               <select class="dropdown-text secret" name="listOutputs">
+                  <option value="listOutputs">List Outputs</option>
+                  <option value="N/A">N/A</option>
+               </select>
+               </div>
+            </div>
             
             <br/><br/>
             
@@ -170,13 +172,19 @@
                <label>Device Name:</label><br/>
                <input type="text" id="name" name="name"><br/>
                <label>Device Type:</label><br/>
-               <select id="device" class="dropdown">
-                  <option value="android">Android Device</option>
-                  <option value="light-switch">Light Switch</option>
+               <select id="device" class="dropdown-text">
+                  <option value="selectAPI">Select API</option>
+                  <option value="temp">Temperature Sensor</option>
+                  <option value="fb">Facebook</option>
                </select><br/>
+               <div id="ip-input">
                <label>IP Address:</label><br/>
-               <input type="text" id="ip" name="ip"><br/><br/>
-               <span id="add-device" class="submit-button">Submit</span>
+               <input type="text" id="ip" name="ip"><br/>
+               </div>
+               <div id="fblogin" class="secret">
+	          <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+	       </div>
+               <br/><span id="add-device" class="submit-button">Submit</span>
                </form>
 		      </div>
 
