@@ -45,11 +45,11 @@ $(document).ready(function(){
     FB.api(
 	'/me/feed',
 	'post', 
-	{message: 'I'm on Cloud1'},
+	{message: "I'm on Cloud1"},
     	function(response) {
           // handle the response
 	}
-    });
+    );
 
 });
 
@@ -115,7 +115,7 @@ $(document).ready(function(){
   });
 
   FB.login(function(){
-    FB.api('/me/feed', 'post', {message: 'I'm on Cloud1'});
+    FB.api('/me/feed', 'post', {message: "I'm on Cloud1"});
   }, {scope: 'publish_actions'});
 
   };
