@@ -1,3 +1,5 @@
+var ip = "192.168.1.7/sensor";
+
 $(document).ready(function(){
     var devices = [];
     var i = 0;

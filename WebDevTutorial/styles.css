@@ -89,10 +89,8 @@ body {
     right: 5px;
 }
 
-fb:login-button{
-    position: fixed;
-    top: 5px;
-    right: 5px;
+#fblogin{
+	float: right;
 
 }
 
