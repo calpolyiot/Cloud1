@@ -84,7 +84,9 @@ body {
 }
 
 .fb-like{
- float: right;
+    position: fixed;
+    top: 30px;
+    right: 5px;
 }
 
 .devices {
