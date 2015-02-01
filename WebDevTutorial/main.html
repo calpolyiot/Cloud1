@@ -1,0 +1,217 @@
+<!-- This is an HTML comment -->
+
+<!DOCTYPE html>
+<!-- This specifies the type of web page. There's different standards like -->
+<!-- xhtml (a cross between XML and HTML), HTML4, HTML5, etc... -->
+<!-- This tells the web browser how to read and interpret what's in this file. -->
+
+<html lang="en-US">
+
+   <!-- Start of the web page. 'lang="en-US"' is called an attribute. Attributes can be -->
+   <!-- added to any sort of tag. An HTML tag is written like this <tag> and with few -->
+   <!-- exceptions you almost always need a closing tag written as </tag> to end a section -->
+   <!-- lang="en-US" is merely telling the web browser to use the US English language char set. -->
+
+   <head>
+      <!-- The head section contains info about the web page like the title, search engine info, etc... -->
+
+      <title>Cloud1</title>
+      <!-- Name of the web page (what you will see on the browser tab). -->
+
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <link rel="stylesheet" href="GlobalStyles.css">
+      <link rel="stylesheet" href="MainStyles.css">
+      <!-- This is a style link. rel tells the browser what type and href tells the browser the location -->
+      <!-- Right now we are pointing to the home directory (where the web page is located) you can -->
+      <!-- tell the browser to look in a different location like this /folder/filename.ext -->
+      <!-- everything is relative to the home directory. Anyways, this tells the browser to look -->
+      <!-- for a file called styles.css in the home directory. That file contains all of our CSS. -->
+
+      <link href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet">
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <!-- This is a script tag. Inside a script tag you can have your javascript functions. -->
+      <!-- The src attribute is similar to href. This tag is empty, but it gives the location of -->
+      <!-- a file that contains javascript functions. This particular tag points to the JQuery -->
+      <!-- function library that google hosts for free. -->
+
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+      <script type="text/javascript" src="./MainScripts.js"></script>
+      <!-- This tag links to our own file containing all of our javascript code. -->
+
+      <!-- Note: the order of the tags is the order in which the web browser receives things. -->
+      <!-- Generally, you want the CSS linking in the head tag because you want the CSS to be -->
+      <!-- loaded before the browser tries to display the page so that everything is displayed correctly, -->
+      <!-- but the script tags can actually go after the body. The reason for this is how pages are -->
+      <!-- loaded. Depending on the size of the web page and connection speed the delay before a web page -->
+      <!-- loads. If we place the javascript code up here the web page will completely load before -->
+      <!-- being displayed, but it's going to be slower. If we place the javascript code at the end -->
+      <!-- The page will be displayed faster, but any javascript will still need to be loaded. So, -->
+      <!-- any javascript that alters the look of the page or performs some function won't occur immediately. -->
+
+   </head>
+
+   <body>
+      <!-- The body tag encloses all the HTML structure of the page. This is the foundation for the -->
+      <!-- page that will be modified by the CSS and javascript to give in the final coating of paint -->
+      <!-- so to speak. -->
+
+      <div class="header">
+         <!-- The div tag is one of the most essential tags in HTML. It creates a division or block of -->
+         <!-- elements. Basically, every individual section or object on the page should be in its own -->
+         <!-- div tag. The class attribute is also very important. You can give any number of tags the -->
+         <!-- same class and have as many classes as you want. This is useful for grouping items together. -->
+         <!-- You can then use that class to target specific groups with your CSS and Javascript. -->
+         <!-- By default a block style element. -->
+         
+         <a class="links" id="sign-out">Sign Out?</a>
+
+         <!-- facebook like button test -->
+         <!--<div class="fb-like" data-share="false" data-width="450" data-show-faces="true"></div>-->
+
+         <!--<div id="fblogin">
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+         </div>-->
+      </div>
+
+      <div id="body">
+
+         <div id="device-column">
+            <div class="devices" id="my-devices">
+               <span class="device-header">My Devices</span>
+               <img src="img/IoTIcons/plus-50.png" class="button" id="button1">
+               <hr>
+               <ul>
+               </ul>
+            </div>
+            <div class="devices">
+               <span class="device-header">My Shared Devices</span>
+               <img src="img/IoTIcons/plus-50.png" class="button" id="button2">
+               <hr>
+               <ul>
+               </ul>
+            </div>
+            <div class="devices">
+               <span class="device-header">Public Devices</span>
+               <img src="img/IoTIcons/plus-50.png" class="button" id="button3">
+               <hr>
+               <ul>
+               </ul>
+            </div>
+         </div>
+         <div id="project-column">
+
+            <label class="label">Master Device:</label><br/><br/>
+
+            <div id="master-inputs">
+               <select id="project-device-master" class="dropdown-text" name="selectAPI">
+                  <option value="selectAPI">Select Device</option>
+               </select>
+
+               <div id="master-io" class="secret hidden-dropdown">
+                  <select class="dropdown-text" name="Input/Output">
+                     <option value="listInputs">Input/Output</option>
+                     <option value="listInputs">Send</option>
+                  </select>
+               </div>
+
+               <div class="secret hidden-dropdown">
+                  <select class="dropdown-text" name="listOperators">
+                     <option value="operators">List Operators</option>
+                     <option value="and">Button Click</option>
+                  </select>
+               </div>
+
+               <div id="master-io" class="secret hidden-dropdown">
+                  <select class="dropdown-text" name="listOutputs">
+                     <option value="listOutputs">List Outputs</option>
+                     <option value="listOutputs">Binary</option>
+                  </select>
+               </div>
+            </div>
+
+            <br/><br/>
+
+            <label class="label">Slave Device:</label><br/><br/>
+
+            <div id="slave-inputs">
+               <select id="project-device-slave" class="dropdown-text" name="selectAPI">
+                  <option value="selectAPI">Select Device</option>
+               </select>
+
+               <div id="slave-io" class="secret hidden-dropdown">
+                  <select class="dropdown-text" name="listInputs">
+                     <option value="listInputs">Input/Output</option>
+                     <option value="listInputs">Receive</option>
+                  </select>
+               </div>
+
+               <div class="secret hidden-dropdown">
+                  <select class="dropdown-text secret" name="listOperators">
+                     <option value="operators">List Operators</option>
+                     <option value="N/A">On/Off</option>
+                  </select>
+               </div>
+
+               <div class="secret hidden-dropdown">
+                  <select class="dropdown-text secret" name="listOutputs">
+                     <option value="listOutputs">List Outputs</option>
+                     <option value="N/A">N/A</option>
+                  </select>
+               </div>
+            </div>
+
+            <br/><br/>
+
+            <span id="generate-code" class="submit-button">Generate Code</span>
+
+            <div id="dialog" title="Add New Device">
+               <form action="" method="post">
+                  <label>Device Name:</label><br/>
+                  <input type="text" id="name" name="name"><br/>
+                  <label>Device Type:</label><br/>
+                  <select id="device" class="dropdown-text">
+                     <option value="selectAPI">Select API</option>
+                     <option value="temp">Temperature Sensor</option>
+                     <option value="fb">Facebook</option>
+                  </select><br/>
+                  <div id="ip-input">
+                     <label>IP Address:</label><br/>
+                     <input type="text" id="ip" name="ip"><br/>
+                  </div>
+                  <div id="fblogin" class="secret">
+                     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+                  </div>
+                  <br/><span id="add-device" class="submit-button">Submit</span>
+               </form>
+            </div>
+
+         </div>
+         <div id="code-column">
+
+            <p id="code-text"></p>
+         </div>
+
+      </div>
+
+   </body>
+
+</html>
+
+<!-- And that's the basics of the HTML file. Just one thing to note, while there are standards -->
+<!-- for web development, every web browser has it's own way of interpreting and implementing -->
+<!-- these standards. This means that all of your HTML, CSS, and Javascript will behave differently -->
+<!-- in each browser/version of the browser. This poses the greatest challenge in web development. -->
+<!-- You need to decide what browsers you will not support. For the most part, the latest versions -->
+<!-- of IE, Firefox, and Chrome will behave similarly and based based on studies 90% of internet users -->
+<!-- are going to be using these browsers. There's also Opera and Safari but they perform similarly. -->
+<!-- That being said, I've had javascript functions that for some reason broke on the latest version -->
+<!-- of Firefox but worked fine on Chrome. The real challenge comes from older versions of IE -->
+<!-- and it's where IE gets it's reputation as the shittiest browser ever. Unfortunately, IE has its -->
+<!-- Legacy BS so it has to have support for older stuff that causes lots of bugs. Any version pre-IE9 -->
+<!-- will not work at all with any modern code, which is problematic because the newest version of IE -->
+<!-- you can get on Windows XP is IE8. The only people using IE8 still are old people that know next -->
+<!-- nothing about computers. With this in mind, most websites only support the newest version of IE -->
+<!-- and modern browsers. You must always run your page in every web browser you support, because -->
+<!-- you will need to make optimizations so everything looks and works as intended. -->

@@ -1,0 +1,91 @@
+html {
+   background: url("./img/background.jpg") no-repeat; 
+   background-size: cover;
+}
+
+body {
+   margin: 0px;
+   height: 100%;
+   width: 100%;
+   position: absolute;
+}
+
+#login-box {
+   background: #ffffff;
+   height: 300px;
+   width: 600px;
+   border-radius: 20px;
+   position: relative;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+}
+
+#submit {
+   background-color: #00a2ff;
+   width: 150px;
+   height: 40px;
+   position: absolute;
+   bottom: 30px;
+   right: 30px;
+   border-radius: 10px;
+   cursor: default;
+}
+
+#submit:hover {
+   background-color: #0092e5;
+}
+
+#submit-text {
+   position: relative;
+   top: 10.5px;
+   left: 51.5px;
+}
+
+.input {
+   border-radius: 6px;
+   border: 1px solid #cccccc;
+   position: relative;
+   left: 5px;
+   width: 150px;
+   height: 30px;
+}
+
+h1 {
+   position: relative;
+   margin-bottom: 50px;
+   width: 150px;
+   display: inline-block;
+   left: 225px;
+}
+
+.form-block {
+   display: inline-block;
+   width: 200px;
+   height: 100px;
+}
+
+label {
+   margin-left: 5px;
+}
+
+#left-block {
+   margin-left: 100px;
+}
+
+#header-icon {
+   display: inline-block;
+   position: absolute;
+   right: 40px;
+   top: 20px;
+}
+
+#pass-reset {
+   left: 310px;
+   bottom: 120px;
+}
+
+#register {
+   left: 105px;
+   bottom: 120px;
+}
