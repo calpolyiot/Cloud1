@@ -1,0 +1,178 @@
+/* This is a CSS comment */
+
+/* Order of specificity: The style with the most specific selector is what is displayed.
+   So !important > inline styles > external style. If you apply width: 50% to all div tags
+   then width: 25% to a div tag with the id "header" then width: 25% will be displayed. */
+
+/* Use the developer tool. It's the most helpful tool in web development. You can
+   right-click > inspect element to bring it up, or find it in the browser menu under something
+   like "developer console". You can look at all the page's html, individual objects values/CSS,
+   text output for debugging, etc... If you want to see how somebody is doing something on a web
+   page, you can inspect the element to see their code. */
+
+body {
+   width: 100% !important;
+   /* The width parameter controls the width of the object. It can be in pixels (px),
+      percentage of screen browser width, and em (the size of the font, so 2em = 2 * font-size.
+      The !important tag will override the order of specificity, but should be a last resort,
+      beacuse it's bad coding practice. */
+
+   height: 100%;
+
+   margin: 0px;
+   /* Every object displayed has margins, borders, and padding around the object. There's
+      three ways to alter these parameters: margin: 0px makes margins on all side 0px wide.
+      margin: 0px 0px 0px 0px affects the margins on the top, right, bottom, left in that
+      order. Finally, you can use margin-top: 0px to target a specific side. */
+}
+/* This is the basic form of CSS. Before the brackets you need to identify what
+   you are applying the styles to (selector). In this case we are targeting all body tags. */
+
+#body {
+   height: 100%;
+}
+
+#sign-out {
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   height: 0px;
+   width: 0px;
+   border-top: 60px solid #003366;
+	border-bottom: 60px solid transparent;
+	border-left: 60px solid transparent;
+   border-right: 60px solid #003366;
+}
+
+#signout {
+   white-space: nowrap;
+   position: relative;
+   top: -35px;
+   color: white;
+   text-decoration: none;
+   left: -12px;
+}
+
+.devices {
+   position: relative;
+   min-height: 32%;
+}
+
+#device-column {
+   background-color: #eeeeee;
+   width: 25%;
+   height: 100%;
+   display: inline;
+   float: left;
+   /* Float is a bit weird. Basically this makes the object move as far to the direction specified
+    as it can. */
+
+   overflow-y: auto;
+   position: relative;
+}
+
+#fblogin {
+   float: right;
+}
+
+.fb-like{
+   position: fixed;
+   top: 30px;
+   right: 0px;
+}
+.device-header {
+   position: relative;
+   top: 5px;
+   margin-left: 10px;
+}
+
+#my-devices ul {
+   list-style-type: none;
+}
+
+.secret {
+   display: none !important;
+}
+
+.hidden-dropdown {
+   display: inline;
+   width: 23% !important;
+}
+
+.button {
+   height: 20px;
+   width: 20px;
+   display: inline-block;
+   position: absolute;
+   right: 5px;
+   top: 5px;
+}
+
+#project-column {
+   background-color: #ffffff;
+   width: 75%;
+   height: 100%;
+   display: inline;
+   float: left;
+   overflow-y: auto;
+}
+
+.label {
+   position: relative;
+   top: 5px;
+   left: 3%;
+}
+
+.dropdown-text {
+   width: 23%;
+}
+
+#device {
+   width: 250px;
+}
+
+#master-inputs {
+   margin-left: 20px;
+}
+
+#slave-inputs {
+   margin-left: 20px;
+}
+
+#generate-code {
+   margin-left: 3%;
+   cursor: pointer;
+}
+
+#code-column {
+   background-color: #000000;
+   width: 25%;
+   height: 100%;
+   display: inline;
+   float: left;
+   overflow-y: auto;
+}
+
+#device-text {
+   margin: 0px;
+   padding: 20px 20px 20px 20px;
+}
+
+#project-text {
+   margin: 0px;
+   padding: 20px 20px 20px 20px;
+}
+
+.submit-button {
+   padding: 5px 10px 5px 10px;
+   border-radius: 10px;
+   background-color: #dddddd;
+}
+
+.submit-button:hover {
+   background-color: #cccccc;
+}
+
+/* Note: Designing your web page is a lot of trial and error. Even I am not always sure how things
+   are going to be displayed. If you have a certain design you want then just start changing various
+   parameters until you eventually get it to display right. */
