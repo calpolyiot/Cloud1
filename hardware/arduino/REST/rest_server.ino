@@ -1,7 +1,5 @@
 /* 
-*  Simple WiFi weather station with Arduino, the DHT11 sensor & the CC3000 chip
-*  Part of the code is based on the work done by Adafruit on the CC3000 chip & the DHT11 sensor
-*  Writtent by Marco Schwartz for Open Home Automation
+*  Arduino REST Server to share sensor data over internet.
 */
 
 // Include required libraries
@@ -15,10 +13,10 @@
 #define ADAFRUIT_CC3000_VBAT  5
 #define ADAFRUIT_CC3000_CS    10
 
-// WiFi network (change with your settings !)
-#define WLAN_SSID       "StarWarsSanctum"
-#define WLAN_PASS       "littlewind113"
-#define WLAN_SECURITY   WLAN_SEC_WPA2
+// WiFi network (change with your settings!)
+#define WLAN_SSID       ""
+#define WLAN_PASS       ""
+#define WLAN_SECURITY   
 
 // Create CC3000 & DHT instances
 Adafruit_CC3000 cc3000 = Adafruit_CC3000(ADAFRUIT_CC3000_CS, 
@@ -36,9 +34,8 @@ Adafruit_CC3000_Server restServer(LISTEN_PORT);
 // DNS responder instance
 MDNSResponder mdns;
 
-// Variables to be exposed to the API
-//float Rsensor_f;
-int sensorValue, Rsensor_i;
+// define variables for sensors to expose
+int light, temperature; //temperature2;
                              
 void setup(void)
 {   
@@ -46,12 +43,13 @@ void setup(void)
   Serial.begin(115200);
   
   // Expose variables to REST API
-  rest.variable("analog",&sensorValue);
-  rest.variable("sensor",&Rsensor_i);
+  rest.variable("light",&light);
+  rest.variable("temperature", &temperature);
+  //rest.variable("temperature2", &temperature2);
   
   // Set name
   rest.set_id("1");
-  rest.set_name("weather_station");
+  rest.set_name("Device1");
     
   // Initialise the CC3000 module
   if (!cc3000.begin())
@@ -82,9 +80,10 @@ void setup(void)
 void loop(void)
 {
   // Measure from DHT
-  sensorValue = analogRead(0);
-  Rsensor_i = (1023-sensorValue)*10/sensorValue;
-  //Rsensor_i = (int)Rsensor_f;
+  light = analogRead(0);
+  temperature = analogRead(1);
+  temperature /= 8;
+  //temperature2 = analogRead(2);
   
   // Handle any multicast DNS requests
   mdns.update();
