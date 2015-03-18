@@ -1,5 +1,4 @@
 Cloud1
 ======
-changes
-This is the Capstone Internet of Things platform
-change 2
+Welcome to Cloud1!
+For getting started open the User_Developer_Guide.pdf file and follow the instructions.
