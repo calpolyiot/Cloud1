@@ -21,64 +21,50 @@ CREATE SCHEMA IF NOT EXISTS `calpolyiot` ;
 USE `calpolyiot` ;
 
 -- -----------------------------------------------------
--- Table `calpolyiot`.`User`
+-- Table `calpolyiot`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `calpolyiot`.`User` ;
+DROP TABLE IF EXISTS `calpolyiot`.`user` ;
 
-CREATE TABLE IF NOT EXISTS `calpolyiot`.`User` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(15) NOT NULL DEFAULT '',
-  `email` VARCHAR(45) NULL,
-  `password` VARCHAR(15) NOT NULL,
-  `lastName` VARCHAR(30) NULL DEFAULT NULL,
-  `firstName` VARCHAR(30) NULL DEFAULT NULL,
-  `dateAdded` DATE NULL DEFAULT NULL,
-  PRIMARY KEY (`id`, `username`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  UNIQUE INDEX `username_UNIQUE` (`username` ASC),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
+CREATE TABLE IF NOT EXISTS `calpolyiot`.`user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(15) NOT NULL DEFAULT '',
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(15) NOT NULL,
+  `lastName` varchar(30) DEFAULT NULL,
+  `firstName` varchar(30) DEFAULT NULL,
+  `dateAdded` date DEFAULT NULL,
+  PRIMARY KEY (`id`,`username`),
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  UNIQUE KEY `username_UNIQUE` (`username`),
+  UNIQUE KEY `email_UNIQUE` (`email`));
 
 
 -- -----------------------------------------------------
--- Table `calpolyiot`.`Device`
+-- Table `calpolyiot`.`device`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `calpolyiot`.`Device` ;
+DROP TABLE IF EXISTS `calpolyiot`.`device` ;
 
-CREATE TABLE IF NOT EXISTS `calpolyiot`.`Device` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `deviceName` VARCHAR(30) NULL DEFAULT NULL,
-  `dateAdded` DATE NULL DEFAULT NULL,
-  `access` VARCHAR(15) NULL DEFAULT 'private',
-  `ownerId` INT(11) NULL DEFAULT '0',
+CREATE TABLE IF NOT EXISTS `calpolyiot`.`device` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `deviceName` varchar(30) DEFAULT NULL,
+  `endpoint` varchar(100) DEFAULT NULL,
+  `dateAdded` date DEFAULT NULL,
+  `access` varchar(15) DEFAULT 'private',
+  `ownerId` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  INDEX `device_fk1_idx` (`ownerId` ASC),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
-  CONSTRAINT `device_fk1`
-    FOREIGN KEY (`ownerId`)
-    REFERENCES `calpolyiot`.`User` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+  UNIQUE KEY `id_UNIQUE` (`id`),
+  KEY `device_fk1_idx` (`ownerId`),
+  CONSTRAINT `device_fk1` FOREIGN KEY (`ownerId`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
--- Table `calpolyiot`.`UserDevice`
+-- Table `calpolyiot`.`sensorlist`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `calpolyiot`.`UserDevice` ;
+DROP TABLE IF EXISTS `calpolyiot`.`sensorlist` ;
 
-CREATE TABLE IF NOT EXISTS `calpolyiot`.`UserDevice` (
-  `userID` INT(11) NOT NULL DEFAULT '0',
-  `deviceID` INT(11) NOT NULL DEFAULT '0',
-  `enabled` VARCHAR(9) NULL DEFAULT 'disabled',
-  `dateAdded` DATE NULL DEFAULT NULL,
-  `permission` VARCHAR(45) NOT NULL DEFAULT 'user',
-  PRIMARY KEY (`userID`, `deviceID`),
-  INDEX `userDevice_fk2` (`deviceID` ASC),
-  CONSTRAINT `userDevice_fk1`
-    FOREIGN KEY (`userID`)
-    REFERENCES `calpolyiot`.`User` (`id`),
-  CONSTRAINT `userDevice_fk2`
-    FOREIGN KEY (`deviceID`)
-    REFERENCES `calpolyiot`.`Device` (`id`));
+CREATE TABLE IF NOT EXISTS `calpolyiot`.`sensorlist` (
+  `endpoint` varchar(100) DEFAULT NULL,
+  `sensor` varchar(45) DEFAULT NULL);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
